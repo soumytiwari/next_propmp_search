@@ -1,0 +1,15 @@
+--> npx create-next-app@latest ./
+//  "./" to create the files in this particular directory
+
+--> npm install bcrypt mongodb mongoose next-auth
+//  bccrypt to hash password
+//  mongodb for database
+//  mongoose to help manage the database
+
+
+- components folder: Here we'll keep our re-usable components
+- models: for mongodb mongoose database models
+- utils: for utility functions we are going to use throughout our applications
+- .env: to store secure keys
+
+>> recreated folders: public, app
