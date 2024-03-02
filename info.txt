@@ -30,3 +30,5 @@ after creation:
 
 now we're ready to start developing the project
 
+- feed.jsx: here we are gonna show all the prompts generated
+
