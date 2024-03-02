@@ -14,11 +14,11 @@ const Home = () => {
             </span>
         </h1>
         <p className="desc text-center">
-            At prompt palace, you get to discover, share and create creative propmpts. An all AI Powered tool.
+            At promp palace, you get to discover, share and create creative propmpts. An all AI Powered tool.
         </p>
 
         {/* feed */}
-        
+        <Feed/>
     </section>
   )
 }

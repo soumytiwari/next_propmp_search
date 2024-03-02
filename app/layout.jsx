@@ -1,8 +1,11 @@
 import '@styles/global.css';
 
+import Nav from '@components/Nav';
+import Provider from '@components/Provider';
+
 // change matadata of our application
 export const metadata = {
-    title: 'Prompt Palace',
+    title: 'Promp Palace',
     description: 'Discover & Share AI Prompts'
 }
 
@@ -18,6 +21,7 @@ const Rootlayout = ({children}) => {                    //  getting the children
 
             {/* main part of our application */}
             <main className="app">
+                <Nav/>
                 {/* render all the children */}
                 {children}
             </main>
@@ -27,3 +31,6 @@ const Rootlayout = ({children}) => {                    //  getting the children
 }
 
 export default Rootlayout
+
+
+// we wanna use navigation bar in within all of the application pages (which is what layout is for), that's why we will use navigation bar component here. 
