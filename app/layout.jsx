@@ -2,7 +2,7 @@ import '@styles/global.css';
 
 // change matadata of our application
 export const metadata = {
-    title: '',
+    title: 'Prompt Palace',
     description: 'Discover & Share AI Prompts'
 }
 
