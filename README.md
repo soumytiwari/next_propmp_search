@@ -57,3 +57,20 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - .env: to store secure keys
 
 >> recreated folders: public, app
+
+
+-----------------------------------------------
+
+after creation:
+
+- ./app/page.jsx: will render our home page
+--> edits
+--> npm run dev: to start the server on localhost: 3000
+
+
+
+-------------------------------------------------------------
+
+
+now we're ready to start developing the project
+
