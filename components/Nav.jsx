@@ -13,6 +13,8 @@ const Nav = () => {
   // when user is not logged in, we need to use sigin button, and for this we need.. providers
   // it is going to allow us to sigin using, google and next-auth <here, can more>
   const [providers, setProviders] = useState(null);
+  // to be able to use drop-down-menu in mobile application
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   // set the providers using nextjs
   useEffect(() => {
@@ -81,21 +83,46 @@ const Nav = () => {
         )}
       </div>
 
-
       {/* Mobile Navigation */}
       <div className="sm:hidden flex relative">
         {isUserLoggedIn ? (
           <div className="flex">
-            <Link href="/profile">
-              <Image
-                src="assets/images/logo.svg"
-                width={37}
-                height={37}
-                className="rounded-full"
-                alt="profile"
-                onClick={() => {}}
-              ></Image>
-            </Link>
+            <Image
+              src="assets/images/logo.svg"
+              width={37}
+              height={37}
+              className="rounded-full"
+              alt="profile"
+              onClick={() => setToggleDropdown((prev) => !prev)} //  set the toggle-drop-down to opposite of its current value
+            ></Image>
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link
+                  href="/profile"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  My Profile
+                </Link>
+                <Link
+                  href="/create-prompt"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Create Prompt
+                </Link>
+                <button
+                  type="button"
+                  className="mt-5 w-full black_btn"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                >
+                  Sign Out
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <>
