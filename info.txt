@@ -36,8 +36,11 @@ now we're ready to start developing the project
 :: every nextjs route is serverless route ==> no server is needed to access database, but connection is needed to the database
 lambda function -> opens the connection to the database
 - serverless -> Lambda -> dynamodb
+- mongoose: helping us interact with mongodb database
 
 -----------------------------
 online cloud storage to create your storage
 - mongodb.com/atlas: create-cluster, go to access, password, go to network access-> add ip address(current)
 but there's an option of "0000" for ip-address => can access the database from anywhere in the world
+
+- /models/user.js: the model on which user data will be stored
