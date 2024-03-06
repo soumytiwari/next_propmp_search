@@ -31,4 +31,5 @@ after creation:
 now we're ready to start developing the project
 
 - feed.jsx: here we are gonna show all the prompts generated
+- ./app/api/auth/[...nextauth]/route.js: relative route([...xyz]), with variable parameter nextauth, used in route.js
 
