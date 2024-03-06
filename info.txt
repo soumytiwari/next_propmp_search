@@ -33,3 +33,6 @@ now we're ready to start developing the project
 - feed.jsx: here we are gonna show all the prompts generated
 - ./app/api/auth/[...nextauth]/route.js: relative route([...xyz]), with variable parameter nextauth, used in route.js
 
+:: every nextjs route is serverless route ==> no server is needed to access database, but connection is needed to the database
+lambda function -> opens the connection to the database
+- serverless -> Lambda -> dynamodb

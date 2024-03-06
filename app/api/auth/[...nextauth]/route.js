@@ -21,7 +21,11 @@ const handler = NextAuth({
     },
     // here we gonna get user profile
     async sigIn({ profile }) {
+        try {
+            // 
+        } catch(error) {
 
+        }
     }
 })
 
