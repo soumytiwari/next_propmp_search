@@ -3,11 +3,18 @@
 */
 const nextConfig = {
   experimental: {
-    appDir: true,
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    remotePatterns: [
+      {
+        hostname: 'lh3.googleusercontent.com',
+        protocol: 'https',
+        // hostname: 'lh3.googleusercontent.com',
+        // regExp: '^https://lh3\\.googleusercontent\\.com/'
+        // /^https:\/\/lh3\.googleusercontent\.com\//,
+      },
+    ],
   },
   webpack(config) {
     config.experiments = {
