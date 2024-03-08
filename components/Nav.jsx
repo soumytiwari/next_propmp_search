@@ -8,7 +8,9 @@ import { useEffect, useState } from "react"; // hooks
 import { signIn, signOut, useSession, getProviders } from "next-auth/react"; //  these utility functions is gonna make our sigin, and signout flow simple
 
 const Nav = () => {
-  const isUserLoggedIn = true;
+  // const isUserLoggedIn = true;
+  // let's pull the user's real current data (use hook, "useSession")
+  const { data: session } = useSession();
 
   // when user is not logged in, we need to use sigin button, and for this we need.. providers
   // it is going to allow us to sigin using, google and next-auth <here, can more>
@@ -18,14 +20,14 @@ const Nav = () => {
 
   // set the providers using nextjs
   useEffect(() => {
-    const setProviders = async () => {
+    const setUpProviders = async () => {
       const response = await getProviders();
 
       setProviders(response);
     };
 
     // not calling setProviders anywhere so here
-    setProviders();
+    setUpProviders();
   }, []);
 
   return (
@@ -37,15 +39,16 @@ const Nav = () => {
           alt="Prompt Palace Logo"
           width={30}
           height={30}
-        ></Image>
+        />
         {/* on smaller device, it won't show the logo name */}
         <p className="logo_text">Promp Palace</p>
       </Link>
 
+
       {/* Desktop Navigation */}
       {/* this means, on small devices it will be flex, otherwise usually hidden */}
       <div className="sm:flex hidden">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link className="black_btn" href="/create=prompt">
               Create Post
@@ -62,7 +65,7 @@ const Nav = () => {
                 height={37}
                 className="rounded-full"
                 alt="profile"
-              ></Image>
+              />
             </Link>
           </div>
         ) : (
@@ -85,7 +88,7 @@ const Nav = () => {
 
       {/* Mobile Navigation */}
       <div className="sm:hidden flex relative">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex">
             <Image
               src="assets/images/logo.svg"

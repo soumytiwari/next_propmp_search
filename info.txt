@@ -44,3 +44,15 @@ online cloud storage to create your storage
 but there's an option of "0000" for ip-address => can access the database from anywhere in the world
 
 - /models/user.js: the model on which user data will be stored
+- route: is gonna handle entire authentication process (adding the api route)
+
+|reate: 
+|NEXTAUTH_URL=http://localhost:3000
+|NEXTAUTH_URL_INTERNAL=http://localhost:3000
+|NEXTAUTH_SECRET= A random string is used to hash tokens, sign/encrypt cookies and generate cryptographic keys.
+- use the command, openssl rand -base64 32 for windows and nextauth secret will be generated. You can go to, https://www.cryptool.org/en/cto/openssl.html here for using ssl-terminal
+
+---------
+
+- to know what you have in a specific const or variable etc., you can use "alert" ex: {alert.(session?.user)} <or console log, if you wanna open up console and see>
+- to make google-sigin work, you need to add "api/auth/callback/google" uri appended with, "http://localhost:3000/" as new OAuth2.0 redirect uri
