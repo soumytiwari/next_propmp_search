@@ -19,7 +19,7 @@ const CreatePrompt = () => {
 
   // function to create prompt
   const createPrompt = async (e) => {
-    // this prevents the default behaviour of event i.e., by doing page-reload. we wanna reduce number of reloads possible so..
+    // this prevents the default behaviour of the browser when submitting the form which is to do a reload. we wanna reduce number of reloads possible so..
     e.preventDefault();
     setSubmitting(true);        //  we can use this as some sort of loader later on
 

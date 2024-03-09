@@ -57,4 +57,4 @@ but there's an option of "0000" for ip-address => can access the database from a
 - to know what you have in a specific const or variable etc., you can use "alert" ex: {alert.(session?.user)} <or console log, if you wanna open up console and see>
 - to make google-sigin work, you need to add "api/auth/callback/google" uri appended with, "http://localhost:3000/" as new OAuth2.0 redirect uri
 - whenever you import a hook, you need to make it 'use client'; thing
-- (create our own api end point): /api/prompt/new/route.js <create in..>
+- (create our own api end point): /api/prompt/new/route.js <create in..>. Now create your own route there...
