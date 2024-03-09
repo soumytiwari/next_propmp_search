@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation';
 import Form from '@components/Form';
 
 const CreatePrompt = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
 
   // all the variables that we can pass to our form
   // are we submitting our state?
