@@ -59,3 +59,9 @@ but there's an option of "0000" for ip-address => can access the database from a
 - whenever you import a hook, you need to make it 'use client'; thing
 - (create our own api end point): /api/prompt/new/route.js <create in..>. Now create your own route there...
 - connectToDB is a Lambda function: which means, when we avoke it, it connects to the db, do its job and then go in peace (it is going to die, oncw it does its job)
+- get request to get all of the prompts to show in our feed
+- we've created our prompt.. now we need to display it/them as feed
+- now all the CRUD operation will come to live, as we implement our GET request
+- with POST, we created (status: 201) our prompt. With GET we're showing (status: 200) our prompt/s in feed 
+- status: 500: internal server error, error during connecting the website's server (here, temp-db connection).. and that the requested page cannot be accessed.
+- CRUD: Create(POST) Read/Retrieve(GET) Update(POST) Delete(DELETE)
