@@ -65,3 +65,4 @@ but there's an option of "0000" for ip-address => can access the database from a
 - with POST, we created (status: 201) our prompt. With GET we're showing (status: 200) our prompt/s in feed 
 - status: 500: internal server error, error during connecting the website's server (here, temp-db connection).. and that the requested page cannot be accessed.
 - CRUD: Create(POST) Read/Retrieve(GET) Update(POST) Delete(DELETE)
+- [id]: dynamic route of id
