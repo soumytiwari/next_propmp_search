@@ -66,3 +66,10 @@ but there's an option of "0000" for ip-address => can access the database from a
 - status: 500: internal server error, error during connecting the website's server (here, temp-db connection).. and that the requested page cannot be accessed.
 - CRUD: Create(POST) Read/Retrieve(GET) Update(POST) Delete(DELETE)
 - [id]: dynamic route of id
+
+---------------
+
+Let's go to, not the profile page, but the profile component, to show user profile data the them
+- handleDelete={() => handleDelete && handleDelete(post)}
+- handleDelete &&: if the 'handleDelete' exists.. 
+- handleDelete(post): do the work in handleDelete, with the passed param (here, post)
