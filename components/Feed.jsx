@@ -4,13 +4,42 @@ import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
 
+const PromptCardList = ({ data, handleTagClick }) => {
+  return (
+    <div className="mt-16 prompt_layout">
+      {data.map((post) => (
+        <PromptCard
+          key={post._id}
+          post={post}
+          handleTagClick={handleTagClick}
+        />
+      ))}
+    </div>
+  )
+}
+
+
 const Feed = () => {
 
   const [searchText, setSearchText] = useState('');
+  const [posts, setPosts] = useState([]);
 
   const handleSearchChange = (e) => {
 
   }
+
+  // from the feed we have to make a GET request to our own next.js api
+  // for it we'll use, useEffect... and here cause we want it to show as soon as the page loads
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch('/api/prompt');
+      const data = await response.json();
+      // now we can update our state, using post <by creating a new useState field, c/d posts>
+      setPosts(data);
+    }
+
+    fetchPosts();
+  }, []);
 
   return (
     <section className="feed">
@@ -26,10 +55,15 @@ const Feed = () => {
         />
       </form>
 
-      {/* <PromptCardList 
-      data: /> */}
+    {/* now we gonna render our prompt */}
+      <PromptCardList
+      data= {posts}
+      handleTagClick={() => {}}
+      />
     </section>
   );
 };
 
 export default Feed;
+
+// PromptCardList is gonna be used only in this specific feed
