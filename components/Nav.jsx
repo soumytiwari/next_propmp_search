@@ -12,7 +12,6 @@ const Nav = () => {
   // const isUserLoggedIn = true;
   // let's pull the user's real current data (use hook, "useSession")
   const { data: session } = useSession();
-  console.log("sessionNav: ", session)
 
   // when user is not logged in, we need to use sigin button, and for this we need.. providers
   // it is going to allow us to sigin using, google and next-auth <here, can more>

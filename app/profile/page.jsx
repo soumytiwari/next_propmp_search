@@ -2,49 +2,56 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import Profile from "@components/Profile";
+import { data } from "autoprefixer";
 
 const MyProfile = () => {
 
     const { data: session } = useSession();                   //  to fetch, we have to get that data
 
-    const [myPosts, setMyPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
 
   // fetch
   // from the feed we have to make a GET request to our own next.js api
   // for it we'll use, useEffect... and here cause we want it to show as soon as the page loads
   useEffect(() => {
-    console.log(session?.user.id)
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);             //  `` instead of '' or other.. to make the route dynamic(depends on user). fetch the posts of the specific user only
       const data = await response.json();
+      // console.log("session user id: " + session?.user.id)
+      // alert(`data: ${data}`);
+      // alert(`session user id: ${session?.user.id}`);
 
       // now we can update our state(data), using post <by creating a new useState field, c/d posts>
-      setMyPosts(data);
+      setPosts(data);
+      
     };
 
-    
     //  fetch only when we have a user logged in
     if(session?.user.id) fetchPosts();
   }, []);
+  
+  // alert(`data--: ${data}`);
+  // console.log(data);
+  // alert(`data: ${JSON.stringify(data)}`);
+  // console.log(`${JSON.stringify(data)}`)
 
-  console.log(myPosts)
-
+  
   const handleEdit = async () => {};
-
+  
   const handleDelete = async () => {};
-
+  
   return (
     <Profile
-      name="My"
-      desc="Welcome to your personalized profile page"
-      data={myPosts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
+    name="My"
+    desc="Welcome to your personalized profile page"
+    data={posts}
+    handleEdit={handleEdit}
+    handleDelete={handleDelete}
     />
-  );
+    );
 };
 
 export default MyProfile;
