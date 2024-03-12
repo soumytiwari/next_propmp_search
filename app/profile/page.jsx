@@ -12,9 +12,11 @@ const MyProfile = () => {
 
     const [myPosts, setMyPosts] = useState([]);
 
+  // fetch
   // from the feed we have to make a GET request to our own next.js api
   // for it we'll use, useEffect... and here cause we want it to show as soon as the page loads
   useEffect(() => {
+    console.log(session?.user.id)
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);             //  `` instead of '' or other.. to make the route dynamic(depends on user). fetch the posts of the specific user only
       const data = await response.json();
@@ -27,6 +29,8 @@ const MyProfile = () => {
     //  fetch only when we have a user logged in
     if(session?.user.id) fetchPosts();
   }, []);
+
+  console.log(myPosts)
 
   const handleEdit = async () => {};
 

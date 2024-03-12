@@ -3,14 +3,15 @@ import Prompt from "@models/prompt";
 
 export const GET = async (request, { params }) => {
     try{
+        console.log("params", params._id)
         await connectToDB();
         // now we have to filter out our prompts
         const prompts = await Prompt.find({
-            creator: params.id                  //  this is going to get us the posts from that specific creator
+            creator: params._id                  //  this is going to get us the posts from that specific creator
         }).populate('creator');                  //  fin({}) means, find all posts; .populate the creator to know who created it
-
+        console.log("prompts", prompts)
         return new Response(JSON.stringify(prompts), { status: 200 })
-      } catch (error) {
+    } catch (error) {
         return new Response("Failed to fetch all the prompts", { status: 500 })
     }
 }

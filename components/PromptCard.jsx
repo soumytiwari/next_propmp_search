@@ -10,6 +10,10 @@ import { usePathname, useRouter } from "next/navigation";
 
 //
 const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
+  // const { data: session } = useSession();
+  // const { pathname } = usePathname();
+  // const router = useRouter();
+
   const [copied, setCopied] = useState("");
 
   // function to copy the prompt to the clip-board

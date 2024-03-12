@@ -6,11 +6,13 @@ import Link from "next/link";
 import Image from "next/image"; //  this will automatically optimize the images for us
 import { useEffect, useState } from "react"; // hooks
 import { signIn, signOut, useSession, getProviders } from "next-auth/react"; //  these utility functions is gonna make our sigin, and signout flow simple
+import { data } from "autoprefixer";
 
 const Nav = () => {
   // const isUserLoggedIn = true;
   // let's pull the user's real current data (use hook, "useSession")
   const { data: session } = useSession();
+  console.log("sessionNav: ", session)
 
   // when user is not logged in, we need to use sigin button, and for this we need.. providers
   // it is going to allow us to sigin using, google and next-auth <here, can more>
