@@ -9,6 +9,8 @@ import { data } from "autoprefixer";
 
 const MyProfile = () => {
 
+  const router = useRouter();
+
     const { data: session } = useSession();                   //  to fetch, we have to get that data
 
     const [posts, setPosts] = useState([]);
@@ -30,12 +32,13 @@ const MyProfile = () => {
     if(session?.user.id) fetchPosts();
   }, []);
   
-  const handleEdit = async () => {
-
+  const handleEdit = async (post) => {
+    // i will not edit it immidiately, but we'll take the user to a page where they can edit in a nice way 
+    router.push(`/update-prompt?id=${post._id}`)
   };
   
-  const handleDelete = async () => {
-    
+  const handleDelete = async (post) => {
+
   };
   
   return (

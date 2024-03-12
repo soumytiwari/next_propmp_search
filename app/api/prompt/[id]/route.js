@@ -1,11 +1,11 @@
 import { connectToDB } from "@utils/database";
 import Prompt from "@models/prompt";
-// GET (read)
 
+// GET (read)
 export const GET = async (request, { params }) => {
     try{
         await connectToDB();
-        const prompt = await Prompt.findBtId(params.id).populate('creator');                  //  fin({}) means, find all posts; .populate the creator to know who created it
+        const prompt = await Prompt.findById(params.id).populate('creator');                  //  fin({}) means, find all posts; .populate the creator to know who created it
         
         if(!prompt) return new Response("Prompt not found", { status: 404 })
         return new Response(JSON.stringify(prompt), { status: 200 })
@@ -18,7 +18,7 @@ export const GET = async (request, { params }) => {
 //  PATCH (update)
 export const PATCH = async(request, { params }) => {
     // get the parameters to update
-    const { params, tag } = await request.json();
+    const { prompt, tag } = await request.json();
 
     try{
         await connectToDB();
@@ -26,8 +26,9 @@ export const PATCH = async(request, { params }) => {
         // find the existing parameters, nd we can pass the params.id
         const existingPrompt = await Prompt.findById(params.id);
 
-        if(!existingPrompt) return new Response("Prompt not found", { status: 404 })
+        if(!existingPrompt) return new Response("Prompt not found", { status: 404 });
 
+        // update the prompt with new data
         existingPrompt.prompt = prompt;
         existingPrompt.tag = tag;
 
