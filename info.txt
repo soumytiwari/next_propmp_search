@@ -73,3 +73,8 @@ Let's go to, not the profile page, but the profile component, to show user profi
 - handleDelete={() => handleDelete && handleDelete(post)}
 - handleDelete &&: if the 'handleDelete' exists.. 
 - handleDelete(post): do the work in handleDelete, with the passed param (here, post)
+
+-------------------------
+
+- for CRUD operation of Edit and Delete, we created the buttons. Now, we will create api end-points to call it for edit or delete.
+- app/api/prompt(in prompt cause we are deleting or editing prompt)/[id](cause we will edit or delete based on id of the prompt)/route.js

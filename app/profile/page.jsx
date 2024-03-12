@@ -20,9 +20,6 @@ const MyProfile = () => {
     const fetchPosts = async () => {
       const response = await fetch(`/api/users/${session?.user.id}/posts`);             //  `` instead of '' or other.. to make the route dynamic(depends on user). fetch the posts of the specific user only
       const data = await response.json();
-      // console.log("session user id: " + session?.user.id)
-      // alert(`data: ${data}`);
-      // alert(`session user id: ${session?.user.id}`);
 
       // now we can update our state(data), using post <by creating a new useState field, c/d posts>
       setPosts(data);
@@ -33,15 +30,13 @@ const MyProfile = () => {
     if(session?.user.id) fetchPosts();
   }, []);
   
-  // alert(`data--: ${data}`);
-  // console.log(data);
-  // alert(`data: ${JSON.stringify(data)}`);
-  // console.log(`${JSON.stringify(data)}`)
+  const handleEdit = async () => {
 
+  };
   
-  const handleEdit = async () => {};
-  
-  const handleDelete = async () => {};
+  const handleDelete = async () => {
+    
+  };
   
   return (
     <Profile
