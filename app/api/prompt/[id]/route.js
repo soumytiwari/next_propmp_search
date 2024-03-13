@@ -23,7 +23,7 @@ export const PATCH = async(request, { params }) => {
     try{
         await connectToDB();
 
-        // find the existing parameters, nd we can pass the params.id
+        // find the existing parameters, nd we can pass the params.id: find the existing prmopt by id
         const existingPrompt = await Prompt.findById(params.id);
 
         if(!existingPrompt) return new Response("Prompt not found", { status: 404 });
@@ -43,12 +43,17 @@ export const PATCH = async(request, { params }) => {
 // DELETE (delete)
 export const DELETE = async (request, { params }) => {
     try {
-        await connectToDB();
-
-        await Prompt.findByIdAndRemove(params.id);
-
-        return new Response("Prompt deleted successfully", { status: 200 })
-    }   catch (error) {
-        return new Response("Failed to delete prompt", { status: 500 })
+      await connectToDB();
+  
+      const deletedPrompt = await Prompt.deleteOne({ _id: params.id });
+  
+      if (deletedPrompt.deletedCount === 1) {
+        return new Response("Prompt deleted successfully", { status: 200 });
+      } else {
+        return new Response("Prompt not found", { status: 404 });
+      }
+    } catch (error) {
+      return new Response("Failed to delete prompt", { status: 500 });
     }
-}
+  };
+  
