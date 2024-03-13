@@ -67,6 +67,6 @@ after creation:
 --> edits
 --> npm run dev: to start the server on localhost: 3000
 
-
+<few functionalities like, search(by tag, by prompt-content, by username), click on tag to search the prompts of that tag, view other profiles..? etc && deployment at ...>
 - **    UNDER DEVELOPMENT    **
 
