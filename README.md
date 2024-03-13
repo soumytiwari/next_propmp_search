@@ -68,9 +68,5 @@ after creation:
 --> npm run dev: to start the server on localhost: 3000
 
 
-
--------------------------------------------------------------
-
-
-now we're ready to start developing the project
+- **    UNDER DEVELOPMENT    **
 
